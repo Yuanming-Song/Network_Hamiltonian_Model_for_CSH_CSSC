@@ -1,4 +1,4 @@
-# GitHub Publication Bundle
+# Network Hamiltonian Model for CSH-CSSC system
 
 This directory is the publication-facing subset of the NHMs project.
 
