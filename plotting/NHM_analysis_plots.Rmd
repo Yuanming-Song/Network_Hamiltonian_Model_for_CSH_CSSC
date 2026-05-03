@@ -1,0 +1,62 @@
+---
+title: "NHM Analysis Results Visualization"
+author: "SYM"
+date: "2025-01-27"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cosmo
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+maindir <- normalizePath("..", winslash = "/", mustWork = FALSE)
+```
+
+## Load Required Libraries
+
+```{r libraries}
+# Function to install packages if not already installed
+install_if_missing <- function(package) {
+  if (!require(package, character.only = TRUE)) {
+    install.packages(package, dependencies = TRUE)
+    library(package, character.only = TRUE)
+  }
+}
+
+# List all necessary packages
+required_packages <- c(
+  "sna", "network", "ggplot2", "dplyr", "tidyr", "knitr", 
+  "viridis", "RColorBrewer", "gridExtra", 
+  "ergm", "ergm.multi"
+)
+
+# Install and load all packages
+for (pkg in required_packages) {
+  install_if_missing(pkg)
+}
+```
+
+## Atomistic ERGM Analysis (5 Systems)
+
+```{r aa_analysis}
+save_plt <- TRUE
+source(file.path(maindir, "plotting", "AA_analysis_results.R"))
+```
+
+## Coarse-Grained ERGM Analysis
+
+```{r cg_analysis}
+save_plt <- TRUE
+source(file.path(maindir, "plotting", "CG_analysis_results.R"))
+```
+
+## Molecular Dynamics Network Visualization
+
+```{r md_networks}
+# Source the MD network visualization script
+md_vis_script <- file.path(maindir, "plotting", "visualize_csh_cssc_networks.R")
+source(md_vis_script)
+```
