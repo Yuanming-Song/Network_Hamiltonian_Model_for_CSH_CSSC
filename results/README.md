@@ -65,40 +65,42 @@ results/
 
 ## Object Notes
 
-- `best.dev` is the best held-out deviance summary used during model selection. In the fitting scripts it is stored as a two-value vector: test deviance and the corresponding standard error.
-- `best.fit` is the main fitted compositionally pooled ERGM object.
-  - `ERGM` means exponential random graph model.
-  - `coef` stores the fitted model coefficients.
-  - `cov` stores the estimated covariance matrix of the fitted coefficients.
-  - `se` stores the coefficient standard errors.
-  - `ss.cov` means covariance matrix of the simulated sufficient statistics used in the stochastic-approximation fit.
-  - `ss.mean` means mean simulated sufficient statistics at the fitted parameter values.
-  - `ss.target` means target sufficient statistics computed from the training networks.
-  - `terms` stores the selected ERGM/NHM terms included in the fitted model.
-  - `dmax` means the maximum allowed node degree used as the degree-bound constraint during estimation and simulation.
-  - `deviance.test` is the held-out test deviance computed on the test set.
-  - `deviance.test.se` is the standard error of the held-out test deviance estimate.
-  - `train.sample` stores the compositionally pooled training-sample metadata, including composition weights (`w`), composition types (`types`), type indices (`type.ind`), and counts per type (`type.count`).
-  - In the restrained-fiber fit, `work_msg` and `finish_msg` store progress/log text for batch candidate evaluation.
-- `best.gof` is the goodness-of-fit summary object.
-  - `GOF` means goodness of fit.
-  - It is present in the atomistic and coarse-grained result files.
-  - `degree` refers to node degree distributions.
-  - `comp` refers to component statistics, i.e. connected-component size/count summaries.
-  - `esp` refers to edgewise shared partners.
-  - `.obs` means observed values from the held-out networks.
-  - `.mean` means mean values across simulated networks from the fitted model.
-  - `.sd` means standard deviation across simulated networks.
-  - `.q025` and `.q975` are the 2.5% and 97.5% simulation quantiles, used as an approximate 95% simulation interval.
-  - `.q` stores quantile-position summaries comparing observed statistics to the simulated reference distribution.
-  - `.z` stores z-score style standardized discrepancies between observed and simulated values.
-  - `types`, `type.count`, and `type.ind` index the composition classes used when pooling across systems.
-- `best.terms` is a logical vector marking which candidate model terms were selected in the final model. Its length is 25 for the atomistic fit, 27 for the coarse-grained fit, and 32 for the restrained-fiber fit.
-- `cand` means the full candidate term list considered during forward model selection.
-- `maxdegs` stores the observed maximum degrees by system/composition before collapsing to the fitted degree bound.
-- `seed` is the random-number seed used to make the fitting workflow reproducible.
-- `terminc` means the current term-inclusion logical vector used during forward selection.
-- `hist.dev` stores the deviance history across accepted forward-selection steps.
-- `hist.terms` stores the corresponding term-inclusion history across accepted forward-selection steps.
-- `term_counter` stores how many candidate terms had been tested so far in the modified batch-processing workflow.
-- `final_AA_vs_CG_comparison_20250925_1857.dat` is the bundled final comparison data file comparing atomistic (`AA`) and coarse-grained (`CG`) outputs.
+- `best.dev`: two-value summary of the current best held-out deviance and its standard error.
+- `best.fit`: main fitted ERGM object.
+- `best.gof`: goodness-of-fit summary object.
+- `best.terms`: logical vector marking selected candidate terms; length 25 for atomistic, 27 for coarse-grained, 32 for restrained-fiber.
+- `cand`: candidate ERGM term list used during forward selection.
+- `dmax`: maximum allowed node degree used in the degree-bound constraint.
+- `maxdegs`: observed maximum degrees by system/composition before collapsing to `dmax`.
+- `seed`: random-number seed used for reproducibility.
+- `terminc`: current term-inclusion logical vector during forward selection.
+- `hist.dev`: deviance history across accepted forward-selection steps.
+- `hist.terms`: term-inclusion history across accepted forward-selection steps.
+- `term_counter`: number of candidate terms tested so far in the batch-processing workflow.
+- `coef`: fitted model coefficients.
+- `cov`: covariance matrix of the fitted coefficients.
+- `se`: standard errors of the fitted coefficients.
+- `ss.cov`: covariance matrix of the simulated sufficient statistics.
+- `ss.mean`: mean simulated sufficient statistics at the fitted parameter values.
+- `ss.target`: target sufficient statistics computed from the training networks.
+- `terms`: selected ERGM/NHM terms included in the fitted model.
+- `deviance.test`: held-out test deviance estimate.
+- `deviance.test.se`: SE of held-out test deviance.
+- `train.sample`: pooled training-sample metadata.
+- `w`: composition weights used in pooled fitting.
+- `types`: composition classes used in pooling.
+- `type.ind`: composition-class index for each network.
+- `type.count`: number of networks in each composition class.
+- `work_msg`: stored progress message for a candidate-model batch job in the restrained-fiber workflow.
+- `finish_msg`: stored completion message for a candidate-model batch job in the restrained-fiber workflow.
+- `degree`: node degree distribution summary.
+- `comp`: connected-component summary.
+- `esp`: edgewise shared partner summary.
+- `.obs`: observed values from held-out networks.
+- `.mean`: mean values from simulated networks.
+- `.sd`: standard deviation across simulated networks.
+- `.q025`: 2.5% simulation quantile.
+- `.q975`: 97.5% simulation quantile.
+- `.q`: quantile-position summary comparing observed to simulated values.
+- `.z`: standardized discrepancy summary comparing observed to simulated values.
+- `final_AA_vs_CG_comparison_20250925_1857.dat`: final comparison data file for atomistic (`AA`) versus coarse-grained (`CG`) results.
