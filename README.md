@@ -16,6 +16,7 @@ GitHub_Publication/
 │   ├── visualize_csh_cssc_networks.R
 │   └── visualize_simulated_networks.R
 ├── results/
+│   ├── README.md
 │   ├── csh_cssc_1node_fit.Rdata
 │   ├── csh_cssc_1node_fit_CG.Rdata
 │   ├── csh_cssc_1node_fit_RestFiber.Rdata
@@ -33,15 +34,11 @@ GitHub_Publication/
 - `plotting/NHM_analysis_plots.Rmd`: main R Markdown driver for the bundled plotting workflow.
 - `plotting/visualize_csh_cssc_networks.R`: plots molecular-dynamics network snapshots when the underlying simulation data are available locally.
 - `plotting/visualize_simulated_networks.R`: plots simulated fitted networks if simulated-network result files are added separately.
+- `results/README.md`: documents the structure of the bundled `.Rdata` result files and the comparison data file.
 
-## Rdata Structure
+## Results
 
-- `results/csh_cssc_1node_fit.Rdata` contains `best.dev`, `best.fit`, `best.gof`, `best.terms`, `cand`, `dmax`, `maxdegs`, `seed`, and `terminc`.
-- `results/csh_cssc_1node_fit_CG.Rdata` contains `best.dev`, `best.fit`, `best.gof`, `best.terms`, `cand`, `dmax`, `hist.dev`, `hist.terms`, `maxdegs`, `seed`, `term_counter`, and `terminc`.
-- `results/csh_cssc_1node_fit_RestFiber.Rdata` contains `best.dev`, `best.fit`, `best.terms`, `cand`, `dmax`, `hist.dev`, `hist.terms`, `maxdegs`, `seed`, `term_counter`, and `terminc`.
-- In all three fit objects, `best.fit` stores coefficient and fit summaries such as `coef`, `cov`, `se`, `ss.cov`, `ss.mean`, `ss.target`, `terms`, `dmax`, and held-out deviance fields.
-- `best.gof` is present in the atomistic and coarse-grained `.Rdata` files. The atomistic file stores compact GOF summaries (`degree.q`, `degree.z`, `comp.q`, `comp.z`, `esp.q`, `esp.z`), while the coarse-grained file also stores observed, mean, standard-deviation, quantile, and type-indexed GOF outputs.
-- `best.terms` is a logical vector indicating the selected model terms. Its length is 25 for the atomistic fit, 27 for the coarse-grained fit, and 32 for the restrained-fiber fit.
+See [results/README.md](/dfs9/tw/yuanmis1/mrsec/CSH-CSSC/NHMs/GitHub_Publication/results/README.md) for the `.Rdata` directory tree and object structure.
 
 ## Data Note
 
