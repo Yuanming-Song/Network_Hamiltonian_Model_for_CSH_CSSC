@@ -1,6 +1,6 @@
 # CG ERGM Analysis Results
-# Analysis of Coarse-Grained Network Hamiltonian Model results
-# Modified by SYM on September 19, 2025
+# Written by Carter T. Butts
+# Modified by Yuanming Song on September 19, 2025
 
 # Settings - controlled by individual code blocks
 maindir <- if (exists("maindir")) maindir else normalizePath(file.path(getwd(), ".."), winslash = "/", mustWork = FALSE)

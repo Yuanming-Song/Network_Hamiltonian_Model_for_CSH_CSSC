@@ -1,6 +1,8 @@
 #Functions for estimation and evaluation of network Hamiltonian models for 1-node
 #CSH/CSSC networks.  These are used, in particular, by the csh_cssc_1node_estimation.R function.
 #
+#Written by Carter T. Butts
+#Modified by Yuanming Song
 #Last updated 9/2/25 by CTB
 #
 
@@ -619,4 +621,3 @@ plot.gof.ergmPool<-function(x, ...){
     lines(vals, log1p(q975), lwd=2, col=2)
   }
 }
-

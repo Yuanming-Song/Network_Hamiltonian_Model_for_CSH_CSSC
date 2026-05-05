@@ -1,6 +1,6 @@
 # AA ERGM Analysis Results (5 Systems)
-# Analysis of Atomistic Network Hamiltonian Model results from Carter
-# Modified by SYM on September 19, 2025
+# Written by Carter T. Butts
+# Modified by Yuanming Song on September 19, 2025
 
 # Settings - controlled by individual code blocks
 maindir <- if (exists("maindir")) maindir else normalizePath(file.path(getwd(), ".."), winslash = "/", mustWork = FALSE)

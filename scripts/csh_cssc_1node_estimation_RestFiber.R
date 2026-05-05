@@ -6,7 +6,8 @@
 #Forward selection by held-out deviance is used to choose the model, with parameter
 #estimation using a multi-compositional version of Yin-Butts pooling.
 #
-#Based on CG script, modified for restrained fiber data by SYM on 2025-09-25
+#Written by Carter T. Butts
+#Modified by Yuanming Song on 2025-09-25
 #
 #To perform estimation, it should suffice to adjust the settings in the modifiable
 #arguments section (if desired), and run the code below it.  Some R packages are
